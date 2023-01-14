@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "portfolio-woodwork",
+  "version": "1.0.0",
+  "description": "Woodworking portfolio example",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"cd server & npm start\" \"cd client && npm start\""
+  },
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
