@@ -9,7 +9,7 @@ import './assets/css/reset.css';
 import './App.css';
 
 // Pages
-import { LandingPage } from './pages';
+import { LandingPage, AboutPage } from './pages';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       {/* User layout */}
       <Route element={<BaseLayout />}>
         <Route path={ROUTES.LANDING} element={<LandingPage />} />
-        {/* <Route path={ROUTES.ABOUT} element={<AboutPage />} /> */}
+        <Route path={ROUTES.ABOUT} element={<AboutPage />} />
         {/* <Route path={ROUTES.ITEMS} element={<ItemPage />} /> */}
         {/* <Route path={ROUTES.CHECKOUT} element={<CheckOutPage />} /> */}
         {/* <Route path={ROUTES.ORDERED} element={<OrderPage />} /> */}

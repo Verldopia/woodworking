@@ -1,65 +1,50 @@
+.header {
+  height: var(--header-height);
+  background-color: var(--brand-color);
+  box-shadow: inset 0 -0.5rem 1.5rem rgb(0, 0, 0, 0.25);
+}
 .headerContainer {
-  border-radius: 1rem;
-  background-color: var(--darkest-grey);
-  margin: 0.5rem;
+  width: var(--width);
+  margin: 0 auto;
+}
+.headerIMG {
+  height: var(--header-height);
+  width: 22rem;
+  position: absolute;
+  right: 35%;
+  background-image: url(../../assets/images/tree.png);
+  background-position: center;
+  background-size: cover;
 }
 .headerTop {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  width: 100%;
-  width: var(--width);
-  padding: 0.5rem;
-  margin: 0 auto;
+  padding: 1rem;
 }
 .headerLogo {
+  z-index: 1;
   color: var(--cta-color);
-}
-.headerLogoIMG {
-  transition: all ease 0.2s;
-  width: 3rem;
-  height: 3rem;
-  background-image: var(--logo);
-  background-size: contain;
 }
 .headerLogoIMG:hover {
   color: var(--bgd-color);
 }
 .headerBtns {
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
-
   gap: 1.5rem;
   align-items: center;
   color: var(--bgd-color);
 }
-.btn:hover {
-  color: var(--md-grey);
-}
-.headerMiddle {
-  background-color: --dark-color;
-  padding: 1rem;
-}
-.headerBottom {
-  background-color: var(--darkest-grey);
-}
-.headerButton {
-  color: var(--bgd-color);
-}
-.btn {
-  cursor: pointer;
-  display: flex;
+.btn,
+.headerLogoIMG {
   transition: all ease 0.2s;
 }
-.shake {
-  display: flex;
-  animation: shake 0.8s;
+.btn:hover {
+  color: var(--cta-color);
 }
-@keyframes shake {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.headerTextBox {
+  margin: 1rem;
+  width: 25rem;
 }
