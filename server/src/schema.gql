@@ -1,0 +1,208 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Admin {
+  email: String!
+  id: Int!
+  items: [Item!]
+  password: String!
+  telephone: Float!
+  type: String!
+  userName: String!
+}
+
+type Category {
+  description: String!
+  id: Int!
+  items: [Item!]
+  title: String!
+}
+
+input CreateAdminInput {
+  email: String!
+  password: String!
+  telephone: Float!
+  type: String!
+  userName: String!
+}
+
+input CreateCategoryInput {
+  description: String!
+  title: String!
+}
+
+input CreateDiscountInput {
+  code: String!
+  description: String!
+  discountPercentage: Float!
+  discountPrice: Float!
+  timesUsed: Float!
+}
+
+input CreateItemInput {
+  adminId: Int!
+  approved: Boolean!
+  archived: Boolean!
+  categoryId: Int!
+  description: String!
+  images: String
+  mainImage: String!
+  popularity: Float
+  price: Float!
+  stock: Float!
+  title: String!
+  type: String!
+}
+
+input CreateItemsOrderInput {
+  amount: Int!
+  itemId: Int!
+  orderId: Int!
+}
+
+input CreateOrderInput {
+  delivered: Boolean!
+  orderDate: String!
+  priceTotal: Float!
+  shipped: Boolean!
+  userId: Float
+}
+
+input CreateUserMetaInput {
+  address: String
+  city: String
+  country: String
+  firstName: String!
+  lastName: String!
+  userId: Int!
+}
+
+type Discount {
+  code: String!
+  description: String!
+  discountPercentage: Float!
+  discountPrice: Float!
+  id: Int!
+  items: [Item!]
+  timesUsed: Float!
+}
+
+type Item {
+  admin: Admin!
+  adminId: Int!
+  approved: Boolean!
+  archived: Boolean!
+  category: Category!
+  categoryId: Int!
+  description: String!
+  discount: Discount
+  discountId: Float
+  id: Int!
+  images: String
+  mainImage: String!
+  popularity: Float
+  price: Float!
+  stock: Float!
+  title: String!
+  type: String!
+}
+
+type ItemOrder {
+  amount: Int!
+  item: Item!
+  itemId: Int!
+  order: Order!
+  orderId: Int!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+input LoginUserInput {
+  password: String!
+  userName: String!
+}
+
+type Mutation {
+  createAdmin(createAdminInput: CreateAdminInput!): Admin!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  createDiscount(createDiscountInput: CreateDiscountInput!): Discount!
+  createItem(createItemInput: CreateItemInput!): Item!
+  createItemsOrder(createItemsOrderInput: CreateItemsOrderInput!): ItemOrder!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  createUserMeta(createUserMetaInput: CreateUserMetaInput!): UserMeta!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
+  removeCategory(id: Int!): Category!
+  removeItemOrder(itemId: Int!, orderId: Int!): ItemOrder!
+  removeOrder(id: Int!): Order!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  updateItemOrder(updateItemOrderInput: UpdateItemsOrderInput!): ItemOrder!
+}
+
+type Order {
+  delivered: Boolean!
+  id: Int!
+  orderDate: String!
+  priceTotal: Float!
+  shipped: Boolean!
+  user: User!
+  userId: Float
+}
+
+type Query {
+  Admins: [Admin!]!
+  Items: [Item!]!
+  UserMeta: [UserMeta!]!
+  categories: [Category!]!
+  getAdmin(id: Int!): Admin!
+  getAllDiscounts: [Discount!]!
+  getCategory(id: Int!): Category!
+  getCategoryTitle(title: String!): Category!
+  getDiscount(code: String!): Discount!
+  getItem(id: Int!): Item!
+  getOrder(id: Int!): Order!
+  getOrders: [Order!]!
+  getUser(id: Int!): User!
+  getUserMeta(id: Int!): UserMeta!
+  getUserName(userName: String!): User!
+  itemOrder(orderId: Int!): ItemOrder!
+  itemOrders: [ItemOrder!]!
+  users: [User!]!
+}
+
+input UpdateCategoryInput {
+  description: String
+  id: Int!
+  title: String
+}
+
+input UpdateItemsOrderInput {
+  amount: Int
+  id: Int!
+  itemId: Int
+  orderId: Int
+}
+
+type User {
+  email: String!
+  id: Int!
+  orders: [Order!]
+  password: String!
+  userMeta: UserMeta!
+  userName: String!
+}
+
+type UserMeta {
+  User: User!
+  address: String
+  city: String
+  country: String
+  firstName: String!
+  id: Int!
+  lastName: String!
+  user: User!
+  userId: Int!
+}
