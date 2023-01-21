@@ -1,3 +1,4 @@
+import { ERRORS } from './errorMessages';
 import { ROUTES } from './routes';
 
-export { ROUTES };
+export { ERRORS, ROUTES };
